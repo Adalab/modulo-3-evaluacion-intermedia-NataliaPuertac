@@ -44,7 +44,7 @@ const renderList = () => {
   eachPhrase.character.toLowerCase().includes(select.toLowerCase())
   )
   .map ((eachPhrase, index) => (
-   <li key={index}>
+   <li className="onePhrase" key={index}>
       <p>Quote: {eachPhrase.quote}</p>
       <p>Character: {eachPhrase.character}</p>
     </li>
@@ -59,11 +59,11 @@ const newPhrases = (ev) =>{
 //devuelve el HTML
 
   return <div className="App">
-    <header>
+    <header className="header">
       <h1>Frases de Friends</h1>
-      <form>
+      <form className='form'>
 
-        <label> Filtrar por Frases
+        <label> Filtrar por frases
           <input
           type="search"
           name="search"
@@ -74,7 +74,7 @@ const newPhrases = (ev) =>{
           />
         </label>
 
-        <label htmlFor="person"> Filtrar por personaje </label>
+        <label className="label" htmlFor="person"> Filtrar por personaje </label>
         <select id="person" name="select" onChange={handleSelect}>
           <option value="">Todos</option>
           <option value="Ross">Ross</option>
@@ -89,15 +89,16 @@ const newPhrases = (ev) =>{
     </header>
 
     <main>
-      <ul>{renderList()}</ul>
+      <ul className="list">{renderList()}</ul>
     </main>
 
-    <footer>
+    <footer className="footer">
       <h2>Añadir una nueva frase</h2>
 
-      <label className="label" htmlFor='quote'> Frase:
+      <form className="form2">
+        <label htmlFor='quote'> Frase:
             <input
-            className="new-phrase__input"
+            className="input"
             type="text"
             name="quote"
             id="quote"
@@ -105,11 +106,11 @@ const newPhrases = (ev) =>{
             onInput={newPhrases}
             value={newPhrase.quote}
             />
-          </label>
+        </label>
 
-          <label className="label" htmlFor='characterName'> Personaje:
+        <label htmlFor='characterName'> Personaje:
             <input
-            className="new-phrase__input"
+            className="input"
             type="text"
             name="character"
             id="character"
@@ -117,14 +118,15 @@ const newPhrases = (ev) =>{
             onInput={newPhrases}
             value={newPhrase.character}
             />
-          </label>
+        </label>
 
-          <input
+        <input
           className= "input_Submit"
           type="submit"
           value= "Crea una nueva frase"
           onClick={handleClick}
-          />
+        />
+      </form>
 
     </footer>
 </div>;

@@ -1,1 +1,47 @@
 /* Aquí van tus estilos */
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 30px 20px;
+    list-style: none;
+}
+
+.form{
+    margin: 20px;
+}
+
+.form2{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.onePhrase{
+    margin: 10px 0;
+}
+
+.label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+.input{
+    margin-left: 10px;
+}
