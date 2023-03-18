@@ -5,7 +5,13 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-image: url(../images/friend.jpeg);
+    background-size: cover;
+    background-position-y: -50px;
+    height: 350px;
+    background-repeat: no-repeat;
 }
 
 .footer{
@@ -13,12 +19,16 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .list{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 30px 20px;
     list-style: none;
+    column-gap: 30px;
 }
 
 .form{
@@ -26,22 +36,68 @@
 }
 
 .form2{
-    margin: 20px;
+    margin: 15px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    align-items: center;
 }
 
 .onePhrase{
     margin: 10px 0;
+    border: 2px solid black;
+    padding: 10px 10px;
+    border-radius: 10px;
 }
 
 .label{
     margin-right: 10px;
     margin-left: 10px;
+    color: white;
+    font-size: 25px;
 }
 
 
 .input{
     margin-left: 10px;
+    width: 250px;
+    height: 25px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: bold;
 }
+
+.quote{
+    font-weight: bold;
+}
+
+.character{
+    font-weight: bold;
+    color: rgb(50, 199, 50);
+}
+
+.p{
+    color: white;
+    font-size: 22px;
+    padding-bottom: 10px;
+}
+
+.p2{
+    color: white;
+    font-size: 19px;
+}
+
+.tittle{
+    color: white;
+    font-size: 40px;
+    padding-top: 80px;
+}
+
+.input_Submit{
+    border-radius:10px;
+    height: 35px;
+    width: 200px;
+    font-weight: bold;
+    font-size: 16px;
+}
+

@@ -1,18 +1,24 @@
 import '../styles/App.scss';
-import phrases from '../data/phrases.json';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import getApi from '../services/api';
 
 function App() {
 
 //variables de estado
 
-const [data, setdata] = useState (phrases)
+const [data, setData] = useState ([])
 const [search, setSearch] = useState ('')
 const [select, setSelect] = useState ('')
 const [newPhrase, setNewPhrase] = useState ({
   quote:"",
   character:"",
 })
+
+useEffect(() => {
+    getApi().then((response) => {
+      setData(response);
+    });
+  }, []);
 
 //funciones handler
 
@@ -29,8 +35,9 @@ const handleSelect = (ev) => {
 
 const handleClick = (ev) => {
   ev.preventDefault();
-  setdata([...data, newPhrase])
-  setNewPhrase ({ quote:"",character:""})
+  if (newPhrase.quote !== '' && newPhrase.character !== ''){
+  setData([...data, newPhrase])
+  setNewPhrase ({ quote:"",character:""})}
 };
 
 // funciones para pintar el HTML
@@ -45,8 +52,8 @@ const renderList = () => {
   )
   .map ((eachPhrase, index) => (
    <li className="onePhrase" key={index}>
-      <p>Quote: {eachPhrase.quote}</p>
-      <p>Character: {eachPhrase.character}</p>
+      <p className="quote">{eachPhrase.quote}</p>
+      <p className="character">{eachPhrase.character}</p>
     </li>
   )
   );
@@ -60,10 +67,10 @@ const newPhrases = (ev) =>{
 
   return <div className="App">
     <header className="header">
-      <h1>Frases de Friends</h1>
+      <h1 className="tittle">Frases de Friends</h1>
       <form className='form'>
 
-        <label> Filtrar por frases
+        <label className="label"> Filtrar por frases
           <input
           type="search"
           name="search"
@@ -93,11 +100,13 @@ const newPhrases = (ev) =>{
     </main>
 
     <footer className="footer">
-      <h2>Añadir una nueva frase</h2>
+      <h2 className="p">Añadir una nueva frase</h2>
 
       <form className="form2">
-        <label htmlFor='quote'> Frase:
+  
+        <label className="p2" htmlFor='quote'> Frase:
             <input
+            required
             className="input"
             type="text"
             name="quote"
@@ -108,8 +117,9 @@ const newPhrases = (ev) =>{
             />
         </label>
 
-        <label htmlFor='characterName'> Personaje:
+        <label className="p2" htmlFor='characterName'> Personaje:
             <input
+            required
             className="input"
             type="text"
             name="character"
@@ -126,6 +136,7 @@ const newPhrases = (ev) =>{
           value= "Crea una nueva frase"
           onClick={handleClick}
         />
+  
       </form>
 
     </footer>
